@@ -16,5 +16,6 @@ class Layout extends Model
      */
     protected $fillable = [
         'name',
+        'dirname',
     ];
 }

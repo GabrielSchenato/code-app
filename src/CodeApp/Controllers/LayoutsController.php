@@ -32,6 +32,17 @@ class LayoutsController extends Controller
     
     public function store(Request $request)
     {
-
+        $layout = $this->layout->create([
+            'name' => $request->get('name')
+        ]);
+        $file = $request->file('layout');
+        
+        $zip = new \ZipArchive();
+        if($zip->open($file->getRealPath()) == true)
+        {
+            $zip->extractTo(storage_path("app/layouts/$layout->dirname"));
+            $zip->close();
+        }
+        return redirect()->route('admin.layouts.index');
     }
 }

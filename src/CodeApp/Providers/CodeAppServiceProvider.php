@@ -4,6 +4,7 @@ namespace CodePress\CodeApp\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use CodePress\CodeApp\Models\AppConfig;
+use CodePress\CodeApp\Models\Layout;
 use Illuminate\Support\Facades\Schema;
 
 /**
@@ -22,6 +23,9 @@ class CodeAppServiceProvider extends ServiceProvider
 
         $this->loadViewsFrom(__DIR__ . '/../../resources/views/codeapp', 'codeapp');
         require __DIR__ . '/../routes.php';
+        Layout::creating(function ($layout){
+            $layout->dirname = md5(time());
+        });
     }
 
     public function register()

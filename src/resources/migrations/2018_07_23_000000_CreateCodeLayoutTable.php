@@ -16,6 +16,7 @@ class CreateCodeLayoutTable extends Migration
         Schema::create('codepress_layouts', function (Blueprint $table) {
             $table->increments('id');
             $table->text('name');
+            $table->text('dirname');
             $table->timestamps();
         });
     }
