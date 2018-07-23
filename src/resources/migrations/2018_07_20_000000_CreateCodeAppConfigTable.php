@@ -25,6 +25,7 @@ class CreateCodeAppConfigTable extends Migration
             'frontLayout' => ''
         ];
         $model->options = $options;
+        $model->save();
     }
 
     /**
