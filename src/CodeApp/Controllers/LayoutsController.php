@@ -27,7 +27,7 @@ class LayoutsController extends Controller
     
     public function create()
     {
-
+        return view('codeapp::layouts.create');
     }
     
     public function store(Request $request)
