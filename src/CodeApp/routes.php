@@ -3,13 +3,10 @@
 Route::name('admin.')
         ->prefix('admin/')
         ->middleware('web', 'auth', 'authorization:access_users')
-        ->namespace('CodePress\CodeUser\Controllers\Admin')
+        ->namespace('CodePress\CodeApp\Controllers')
         ->group(function () {
-            Route::resources(['users' => 'UsersController']);
-            Route::resource('roles', 'RolesController')->except([
-                'destroy'
-            ]);
-            Route::resource('permissions', 'PermissionsController')->only([
-                'index', 'show'
+            Route::get('layouts/active/{layout}', 'LayoutsController@active')->name('layouts.active');
+            Route::resource('layouts', 'LayoutsController')->only([
+                'index', 'create', 'store'
             ]);                         
 });

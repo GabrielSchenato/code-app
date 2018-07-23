@@ -21,7 +21,7 @@ class CodeAppServiceProvider extends ServiceProvider
         $this->publishes([__DIR__ . '/../../resources/migrations/' => base_path('database/migrations')], 'migrations');
 
         $this->loadViewsFrom(__DIR__ . '/../../resources/views/codeapp', 'codeapp');
-        //require __DIR__ . '/../routes.php';
+        require __DIR__ . '/../routes.php';
     }
 
     public function register()
