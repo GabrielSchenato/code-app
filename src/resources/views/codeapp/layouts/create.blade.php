@@ -23,7 +23,7 @@
 
                     <div class="form-group">
                         {!! Form::label('layout', 'Layout:') !!}
-                        {!! Form::file('layout', ['class' => 'form-control', 'id' => 'mytiny']) !!}
+                        {!! Form::file('layout', ['class' => 'form-control']) !!}
                     </div>
 
                     <div class="form-group">
